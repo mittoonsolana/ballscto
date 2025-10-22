@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balls CTO Website</title>
+    <title>$Balls - Our Balls Are On Solana</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,34 +14,47 @@
         <div class="hero-overlay">
             <h1 class="hero-title">Our $Balls Are On Solana</h1>
             
-            <!-- Live Token Data -->
-            <div class="live-data-container" id="liveData">
-                <div class="data-loading">Loading live data...</div>
-            </div>
-            
             <div class="button-container">
                 <a href="https://pump.fun/coin/71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump" target="_blank" class="pump-fun-btn">🚀 Pump Fun</a>
                 <a href="https://dexscreener.com/solana/3huyvdmplnnm7edaeaerbttonsihgjjgxpse238zubyk" target="_blank" class="dex-screener-btn">📊 Dex Screener</a>
             </div>
             
-            <div class="contract-address">
-                <div class="contract-label">Contract Address:</div>
-                <div class="contract-box">
-                    <span class="contract-text" id="contractAddress">71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump</span>
-                    <button class="copy-btn" onclick="copyContract()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-                        </svg>
-                    </button>
+            <div class="contract-address-card">
+                <div class="contract-header">
+                    <h3 class="contract-title">Contract Address</h3>
+                    <div class="contract-badge">Solana</div>
                 </div>
-                <span class="copy-feedback" id="copyFeedback">Copied!</span>
-            </div>
-            
-            <!-- Live Chart Section -->
-            <div class="chart-section">
-                <h2 class="chart-title">Live Chart</h2>
-                <div id="dexscreener-embed">
-                    <iframe src="https://dexscreener.com/solana/3huyVDmPLnnm7edaeAERBtToNsiHGjJgxPSE238ZUbYK?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=5"></iframe>
+                <div class="contract-content">
+                    <div class="contract-address-box">
+                    <span class="contract-text" id="contractAddress">71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump</span>
+                    <div class="contract-actions">
+                        <button class="copy-button" onclick="copyContract()">
+                            <svg class="copy-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                            </svg>
+                            Copy
+                        </button>
+                        <div class="platform-logos">
+                            <div class="logo-item">
+                                <svg class="solana-logo" width="24" height="24" viewBox="0 0 397.7 311.7">
+                                    <defs>
+                                        <linearGradient id="solanaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#9945ff"/>
+                                            <stop offset="100%" style="stop-color:#14f195"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path fill="url(#solanaGradient)" d="M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z"/>
+                                    <path fill="url(#solanaGradient)" d="M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1L333.1,73.8c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z"/>
+                                    <path fill="url(#solanaGradient)" d="M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z"/>
+                                </svg>
+                            </div>
+                            <div class="logo-item">
+                                 <img class="pumpfun-logo" src="https://pump.fun/_next/image?url=%2Flogo.png&w=96&q=75" alt="Pump Fun" width="28" height="28">
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard!</div>
                 </div>
             </div>
         </div>
@@ -49,6 +62,14 @@
     
     <!-- Bottom Spacer -->
     <div class="bottom-spacer"></div>
+
+    <!-- Animated Phrases Container -->
+    <div class="animated-phrases-container">
+        <div class="phrase" data-phrase="Protect your balls"></div>
+        <div class="phrase" data-phrase="HODL your balls"></div>
+        <div class="phrase" data-phrase="Stack your balls"></div>
+        <div class="phrase" data-phrase="Cold Storage your balls"></div>
+    </div>
 
     <script>
         // Content Protection
@@ -78,81 +99,148 @@
             return false;
         });
 
-        // Copy contract address functionality
+        // Copy contract address function
         function copyContract() {
-            const contractText = document.getElementById('contractAddress').textContent;
-            navigator.clipboard.writeText(contractText).then(function() {
+            const contractAddress = document.getElementById('contractAddress').textContent;
+            navigator.clipboard.writeText(contractAddress).then(function() {
                 const feedback = document.getElementById('copyFeedback');
-                feedback.style.opacity = '1';
+                feedback.classList.add('show');
+                
                 setTimeout(function() {
-                    feedback.style.opacity = '0';
+                    feedback.classList.remove('show');
                 }, 2000);
             });
         }
 
-        // Fetch live data from DexScreener
-        async function fetchLiveData() {
-            try {
-                const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/solana/3huyvdmplnnm7edaeaerbttonsihgjjgxpse238zubyk');
-                const data = await response.json();
-                
-                if (data && data.pair) {
-                    const pair = data.pair;
-                    const liveDataContainer = document.getElementById('liveData');
-                    
-                    // Format price with appropriate decimal places
-                    const price = pair.priceUsd ? parseFloat(pair.priceUsd).toFixed(8) : 'N/A';
-                    
-                    // Format 24h change with color coding
-                    const change24h = pair.priceChange?.h24;
-                    let changeClass = '';
-                    let changeText = 'N/A';
-                    if (change24h !== undefined) {
-                        changeClass = change24h >= 0 ? 'positive' : 'negative';
-                        changeText = (change24h >= 0 ? '+' : '') + change24h.toFixed(2) + '%';
-                    }
-                    
-                    // Format volume
-                    const volume24h = pair.volume?.h24 ? '$' + Number(pair.volume.h24).toLocaleString(undefined, {maximumFractionDigits: 0}) : 'N/A';
-                    
-                    // Format market cap
-                    const marketCap = pair.fdv ? '$' + Number(pair.fdv).toLocaleString(undefined, {maximumFractionDigits: 0}) : 'N/A';
-                    
-                    liveDataContainer.innerHTML = `
-                        <div class="live-data-grid">
-                            <div class="data-item">
-                                <div class="data-label">Price (USD)</div>
-                                <div class="data-value">$${price}</div>
-                            </div>
-                            <div class="data-item">
-                                <div class="data-label">24h Change</div>
-                                <div class="data-value ${changeClass}">${changeText}</div>
-                            </div>
-                            <div class="data-item">
-                                <div class="data-label">24h Volume</div>
-                                <div class="data-value">${volume24h}</div>
-                            </div>
-                            <div class="data-item">
-                                <div class="data-label">Market Cap</div>
-                                <div class="data-value">${marketCap}</div>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    document.getElementById('liveData').innerHTML = '<div class="data-error">No data available</div>';
-                }
-            } catch (error) {
-                console.error('Error fetching live data:', error);
-                document.getElementById('liveData').innerHTML = '<div class="data-error">Error loading data</div>';
+        // Animated phrases functionality
+        const phrases = document.querySelectorAll('.phrase');
+        const phrasesData = [
+            "Protect your balls",
+            "HODL your balls", 
+            "Stack your balls",
+            "Cold Storage your balls",
+            "Diamond balls",
+            "Moon balls incoming",
+            "Balls to the moon",
+            "Secure your balls",
+            "Never sell your balls",
+            "Balls are forever",
+            "Trust your balls",
+            "Balls over everything",
+            "Keep calm & ball on",
+            "Balls = wealth",
+            "Big ball energy",
+            "Balls don't lie",
+            "Ball harder",
+            "Balls before calls",
+            "Maximum balls",
+            "Legendary balls"
+        ];
+
+        function getRandomPosition() {
+            // Adjust safe zones based on screen size
+            const isMobile = window.innerWidth < 768;
+            
+            let safeZones;
+            if (isMobile) {
+                // Mobile: only use top and bottom areas to avoid content
+                safeZones = [
+                    // Top area (above hero)
+                    { minX: 20, maxX: window.innerWidth - 20, minY: 20, maxY: 120 },
+                    // Bottom area
+                    { minX: 20, maxX: window.innerWidth - 20, minY: window.innerHeight - 150, maxY: window.innerHeight - 20 }
+                ];
+            } else {
+                // Desktop: use corner and side areas
+                safeZones = [
+                    // Top left corner (above hero)
+                    { minX: 50, maxX: 300, minY: 50, maxY: 200 },
+                    // Top right corner
+                    { minX: window.innerWidth - 350, maxX: window.innerWidth - 50, minY: 50, maxY: 200 },
+                    // Left side (beside hero content)
+                    { minX: 50, maxX: 250, minY: 300, maxY: window.innerHeight - 200 },
+                    // Right side (beside hero content)
+                    { minX: window.innerWidth - 300, maxX: window.innerWidth - 50, minY: 300, maxY: window.innerHeight - 200 },
+                    // Bottom left
+                    { minX: 50, maxX: 300, minY: window.innerHeight - 250, maxY: window.innerHeight - 50 },
+                    // Bottom right
+                    { minX: window.innerWidth - 350, maxX: window.innerWidth - 50, minY: window.innerHeight - 250, maxY: window.innerHeight - 50 }
+                ];
             }
+            
+            // Filter safe zones that are actually valid (positive dimensions)
+            const validZones = safeZones.filter(zone => 
+                zone.maxX > zone.minX && zone.maxY > zone.minY && 
+                zone.minX >= 0 && zone.minY >= 0
+            );
+            
+            if (validZones.length === 0) {
+                // Fallback to center-avoiding positioning
+                const x = Math.random() < 0.5 ? 
+                    Math.random() * 200 + 50 : // Left side
+                    window.innerWidth - Math.random() * 200 - 250; // Right side
+                const y = Math.random() * (window.innerHeight - 200) + 100;
+                return { x, y };
+            }
+            
+            // Pick a random safe zone
+            const zone = validZones[Math.floor(Math.random() * validZones.length)];
+            const x = Math.random() * (zone.maxX - zone.minX) + zone.minX;
+            const y = Math.random() * (zone.maxY - zone.minY) + zone.minY;
+            
+            return { x, y };
         }
 
-        // Fetch data on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchLiveData();
-            // Refresh data every 30 seconds
-            setInterval(fetchLiveData, 30000);
+        function showRandomPhrase() {
+            const randomPhrase = phrasesData[Math.floor(Math.random() * phrasesData.length)];
+            const phraseElement = document.createElement('div');
+            phraseElement.className = 'phrase active';
+            phraseElement.textContent = randomPhrase;
+            
+            const position = getRandomPosition();
+            phraseElement.style.left = position.x + 'px';
+            phraseElement.style.top = position.y + 'px';
+            
+            // Add random rotation and size variation
+            const randomRotation = (Math.random() - 0.5) * 30; // -15 to 15 degrees
+            const randomScale = 0.8 + Math.random() * 0.6; // 0.8 to 1.4 scale
+            phraseElement.style.transform = `rotate(${randomRotation}deg) scale(${randomScale})`;
+            
+            document.querySelector('.animated-phrases-container').appendChild(phraseElement);
+            
+            // Longer animation duration to match slower timing
+            const animationDuration = 4000 + Math.random() * 1000; // 4-5 seconds
+            
+            // Remove phrase after animation completes
+            setTimeout(() => {
+                if (phraseElement.parentNode) {
+                    phraseElement.parentNode.removeChild(phraseElement);
+                }
+            }, animationDuration);
+        }
+
+        // Slower phrase spawners for better timing
+        function startPhraseAnimation() {
+            showRandomPhrase();
+            // Longer intervals for slower spawning
+            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
+            setTimeout(startPhraseAnimation, nextInterval);
+        }
+
+        function startSecondaryPhraseAnimation() {
+            showRandomPhrase();
+            // Even longer timing pattern
+            const nextInterval = Math.random() * 5000 + 4000; // 4-9 seconds
+            setTimeout(startSecondaryPhraseAnimation, nextInterval);
+        }
+
+        // Start the animation after page loads
+        window.addEventListener('load', () => {
+            setTimeout(startPhraseAnimation, 2000);
+            setTimeout(startSecondaryPhraseAnimation, 5000);
         });
+
+        // No live data fetching needed since we removed the live data section
     </script>
 </body>
 </html>
