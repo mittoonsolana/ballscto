@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balls CTO Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="gif-container">
+            <img src="balls video hero image 2.gif" alt="Balls Hero Image" class="hero-gif">
+        </div>
+        <div class="hero-overlay">
+            <h1 class="hero-title">Our $Balls Are On Solana</h1>
+            <div class="contract-address">
+                <div class="contract-label">Contract Address:</div>
+                <div class="contract-box">
+                    <span class="contract-text" id="contractAddress">71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump</span>
+                    <button class="copy-btn" onclick="copyContract()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                    </button>
+                </div>
+                <span class="copy-feedback" id="copyFeedback">Copied!</span>
+            </div>
+            
+            <div class="button-container">
+                <a href="https://pump.fun/coin/71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump" target="_blank" class="pump-fun-btn">🚀 Pump Fun</a>
+                <a href="https://dexscreener.com/solana/3huyvdmplnnm7edaeaerbttonsihgjjgxpse238zubyk" target="_blank" class="dex-screener-btn">📊 Dex Screener</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyContract() {
+            const contractText = document.getElementById('contractAddress').textContent;
+            navigator.clipboard.writeText(contractText).then(function() {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.style.opacity = '1';
+                setTimeout(() => {
+                    feedback.style.opacity = '0';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
