@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$Balls - Our Balls Are On Solana</title>
+    <title>$Balls - UR Balls Are On Solana</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <img src="balls video hero image 2.gif" alt="Balls Hero Image" class="hero-gif">
         </div>
         <div class="hero-overlay">
-            <h1 class="hero-title">Our $Balls Are On Solana</h1>
+            <h1 class="hero-title">UR $Balls Are On Solana</h1>
             
             <div class="button-container">
                 <a href="https://pump.fun/coin/71C6H3hVrSyNNLA6PB2sDKTdVWLnuozxxeaUwCnSpump" target="_blank" class="pump-fun-btn">🚀 Pump Fun</a>
@@ -63,13 +63,7 @@
     <!-- Bottom Spacer -->
     <div class="bottom-spacer"></div>
 
-    <!-- Animated Phrases Container -->
-    <div class="animated-phrases-container">
-        <div class="phrase" data-phrase="Protect your balls"></div>
-        <div class="phrase" data-phrase="HODL your balls"></div>
-        <div class="phrase" data-phrase="Stack your balls"></div>
-        <div class="phrase" data-phrase="Cold Storage your balls"></div>
-    </div>
+
 
     <script>
         // Content Protection
@@ -112,133 +106,7 @@
             });
         }
 
-        // Animated phrases functionality
-        const phrases = document.querySelectorAll('.phrase');
-        const phrasesData = [
-            "Protect your balls",
-            "HODL your balls", 
-            "Stack your balls",
-            "Cold Storage your balls",
-            "Diamond balls",
-            "Moon balls incoming",
-            "Balls to the moon",
-            "Secure your balls",
-            "Never sell your balls",
-            "Balls are forever",
-            "Trust your balls",
-            "Balls over everything",
-            "Keep calm & ball on",
-            "Balls = wealth",
-            "Big ball energy",
-            "Balls don't lie",
-            "Ball harder",
-            "Balls before calls",
-            "Maximum balls",
-            "Legendary balls"
-        ];
 
-        function getRandomPosition() {
-            // Adjust safe zones based on screen size
-            const isMobile = window.innerWidth < 768;
-            
-            let safeZones;
-            if (isMobile) {
-                // Mobile: only use top and bottom areas to avoid content
-                safeZones = [
-                    // Top area (above hero)
-                    { minX: 20, maxX: window.innerWidth - 20, minY: 20, maxY: 120 },
-                    // Bottom area
-                    { minX: 20, maxX: window.innerWidth - 20, minY: window.innerHeight - 150, maxY: window.innerHeight - 20 }
-                ];
-            } else {
-                // Desktop: use corner and side areas
-                safeZones = [
-                    // Top left corner (above hero)
-                    { minX: 50, maxX: 300, minY: 50, maxY: 200 },
-                    // Top right corner
-                    { minX: window.innerWidth - 350, maxX: window.innerWidth - 50, minY: 50, maxY: 200 },
-                    // Left side (beside hero content)
-                    { minX: 50, maxX: 250, minY: 300, maxY: window.innerHeight - 200 },
-                    // Right side (beside hero content)
-                    { minX: window.innerWidth - 300, maxX: window.innerWidth - 50, minY: 300, maxY: window.innerHeight - 200 },
-                    // Bottom left
-                    { minX: 50, maxX: 300, minY: window.innerHeight - 250, maxY: window.innerHeight - 50 },
-                    // Bottom right
-                    { minX: window.innerWidth - 350, maxX: window.innerWidth - 50, minY: window.innerHeight - 250, maxY: window.innerHeight - 50 }
-                ];
-            }
-            
-            // Filter safe zones that are actually valid (positive dimensions)
-            const validZones = safeZones.filter(zone => 
-                zone.maxX > zone.minX && zone.maxY > zone.minY && 
-                zone.minX >= 0 && zone.minY >= 0
-            );
-            
-            if (validZones.length === 0) {
-                // Fallback to center-avoiding positioning
-                const x = Math.random() < 0.5 ? 
-                    Math.random() * 200 + 50 : // Left side
-                    window.innerWidth - Math.random() * 200 - 250; // Right side
-                const y = Math.random() * (window.innerHeight - 200) + 100;
-                return { x, y };
-            }
-            
-            // Pick a random safe zone
-            const zone = validZones[Math.floor(Math.random() * validZones.length)];
-            const x = Math.random() * (zone.maxX - zone.minX) + zone.minX;
-            const y = Math.random() * (zone.maxY - zone.minY) + zone.minY;
-            
-            return { x, y };
-        }
-
-        function showRandomPhrase() {
-            const randomPhrase = phrasesData[Math.floor(Math.random() * phrasesData.length)];
-            const phraseElement = document.createElement('div');
-            phraseElement.className = 'phrase active';
-            phraseElement.textContent = randomPhrase;
-            
-            const position = getRandomPosition();
-            phraseElement.style.left = position.x + 'px';
-            phraseElement.style.top = position.y + 'px';
-            
-            // Add random rotation and size variation
-            const randomRotation = (Math.random() - 0.5) * 30; // -15 to 15 degrees
-            const randomScale = 0.8 + Math.random() * 0.6; // 0.8 to 1.4 scale
-            phraseElement.style.transform = `rotate(${randomRotation}deg) scale(${randomScale})`;
-            
-            document.querySelector('.animated-phrases-container').appendChild(phraseElement);
-            
-            // Longer animation duration to match slower timing
-            const animationDuration = 4000 + Math.random() * 1000; // 4-5 seconds
-            
-            // Remove phrase after animation completes
-            setTimeout(() => {
-                if (phraseElement.parentNode) {
-                    phraseElement.parentNode.removeChild(phraseElement);
-                }
-            }, animationDuration);
-        }
-
-        // Slower phrase spawners for better timing
-        function startPhraseAnimation() {
-            showRandomPhrase();
-            // Longer intervals for slower spawning
-            const nextInterval = Math.random() * 4000 + 3000; // 3-7 seconds
-            setTimeout(startPhraseAnimation, nextInterval);
-        }
-
-        function startSecondaryPhraseAnimation() {
-            showRandomPhrase();
-            // Even longer timing pattern
-            const nextInterval = Math.random() * 5000 + 4000; // 4-9 seconds
-            setTimeout(startSecondaryPhraseAnimation, nextInterval);
-        }
-
-        // Start the animation after page loads
-        window.addEventListener('load', () => {
-            setTimeout(startPhraseAnimation, 2000);
-            setTimeout(startSecondaryPhraseAnimation, 5000);
-        });
 
         // No live data fetching needed since we removed the live data section
     </script>
