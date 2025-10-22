@@ -7,53 +7,80 @@
 
 /* Body Styling */
 body {
-    background: #000000;
-    height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    background: #000000;
+    color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
+    min-height: 100vh;
+    /* Content Protection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Animated Code Background */
 body::before {
-    content: "function createToken() {\n  const contract = '0x...';\n  return deploy(contract);\n}\n\nclass Blockchain {\n  constructor() {\n    this.blocks = [];\n  }\n  \n  addBlock(data) {\n    const block = {\n      timestamp: Date.now(),\n      data: data,\n      hash: this.calculateHash()\n    };\n    this.blocks.push(block);\n  }\n}\n\nconst solana = new Connection();\nconst wallet = new Wallet();\n\nasync function mint() {\n  const transaction = new Transaction();\n  await sendTransaction(transaction);\n}\n\nif (wallet.connected) {\n  console.log('Wallet connected');\n  mint();\n}";
+    content: "function transferTokens(address to, uint256 amount) {\n    require(balanceOf[msg.sender] >= amount);\n    balanceOf[msg.sender] -= amount;\n    balanceOf[to] += amount;\n    emit Transfer(msg.sender, to, amount);\n}\n\ncontract SolanaToken {\n    mapping(address => uint256) public balanceOf;\n    uint256 public totalSupply = 1000000;\n    \n    function mint(uint256 amount) public {\n        totalSupply += amount;\n        balanceOf[msg.sender] += amount;\n    }\n}\n\nfunction swapTokens() {\n    // DEX integration\n    uint256 price = getTokenPrice();\n    executeSwap(price);\n}";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 200%;
     font-family: 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.03);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.02);
     white-space: pre-wrap;
-    padding: 20px;
-    z-index: -1;
-    animation: codeScroll 20s linear infinite;
+    overflow: hidden;
+    z-index: 0;
+    animation: codeScroll 25s linear infinite;
     pointer-events: none;
 }
 
 @keyframes codeScroll {
     0% {
-        transform: translateY(100vh);
+        transform: translateY(100%);
     }
     100% {
         transform: translateY(-100%);
     }
 }
 
+/* Bottom Spacer */
+.bottom-spacer {
+    height: 10vh;
+    min-height: 100px;
+}
+
+/* Global Image Protection */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
 /* Hero Section */
 .hero-section {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
-    padding: 2rem;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1rem 5rem 1rem;
+    box-sizing: border-box;
 }
 
 /* GIF Container */
@@ -61,15 +88,35 @@ body::before {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 3rem auto;
+    z-index: 10;
 }
 
 /* Hero GIF */
 .hero-gif {
-    width: 35vw;
-    max-width: 350px;
+    width: 50vw;
+    max-width: 500px;
+    min-width: 300px;
     height: auto;
     border-radius: 15px;
     display: block;
+    visibility: visible;
+    opacity: 1;
+    margin: 0 auto;
+    object-fit: contain;
+    /* Image Protection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
 }
 
 /* Hero Overlay */
@@ -82,7 +129,7 @@ body::before {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     background: linear-gradient(45deg, #ffffff, #cccccc, #888888, #444444);
     background-size: 400% 400%;
     -webkit-background-clip: text;
@@ -91,6 +138,82 @@ body::before {
     animation: textGlow 3s ease infinite;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     letter-spacing: 2px;
+}
+
+/* Live Data Container */
+.live-data-container {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
+    /* Re-enable interactions for this section */
+    pointer-events: auto;
+}
+
+.live-data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.data-item {
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-label {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.data-value {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+.data-value.positive {
+    color: #00ff88;
+}
+
+.data-value.negative {
+    color: #ff4444;
+}
+
+.data-loading {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1rem;
+    padding: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.data-error {
+    text-align: center;
+    color: #ff4444;
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 /* Contract Address Section */
@@ -103,6 +226,8 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     min-width: 400px;
+    /* Re-enable interactions for this section */
+    pointer-events: auto;
 }
 
 .contract-label {
@@ -170,6 +295,9 @@ body::before {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3rem;
+    /* Re-enable interactions for buttons */
+    pointer-events: auto;
 }
 
 /* Pump Fun Button */
@@ -279,6 +407,16 @@ body::before {
         font-size: 2.5rem;
     }
     
+    .live-data-container {
+        min-width: 300px;
+        padding: 1.2rem;
+    }
+    
+    .live-data-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
     .contract-address {
         min-width: 300px;
         padding: 1.2rem;
@@ -307,6 +445,29 @@ body::before {
     .hero-title {
         font-size: 2rem;
         margin-bottom: 2rem;
+    }
+    
+    .live-data-container {
+        min-width: 280px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .live-data-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .data-item {
+        padding: 0.6rem;
+    }
+    
+    .data-label {
+        font-size: 0.8rem;
+    }
+    
+    .data-value {
+        font-size: 1rem;
     }
     
     .contract-address {
